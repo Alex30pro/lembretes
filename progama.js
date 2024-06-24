@@ -123,4 +123,67 @@ function listarDeLembretes() {
     exibirMenu()
 
 }
+function editarLembretes() {
+   
+    rl.question('Digite o número do lembrete que deseja editar: ', (numero) => {
+
+        if (numero > 0 && numero <= lembretes.length) {
+
+            rl.question('Digite o novo nome do lembrete: ', (novoLembrete) => {
+
+                rl.question('Digite o novo horário do lembrete: ', (novoHorario) => {
+
+                    rl.question('Digite o novo dia do lembrete: ', (novoDia) => {
+
+                        lembretes[numero - 1] = {
+
+                            nomeLembrete: novoLembrete,
+
+                            horarioLembrete: novoHorario,
+
+                            diaLembrete: parseFloat(novoDia)
+
+                        }
+
+                        console.log('Lembrete editado com sucesso!');
+
+                        exibirMenu();
+
+                    });
+
+                });
+
+            });
+
+        } else {
+
+            console.log('Número inválido, tente novamente.');
+
+            exibirMenu();
+
+        }
+
+    });
+
+}
+
+function marcarLembrete() {
+
+    rl.question('Digite o número do lembrete que está concluído: ', (numero) => {
+
+        if (numero > 0 && numero <= lembretes.length) {
+
+            lembretes[numero - 1].concluido = true;
+
+            console.log('Lembrete marcado como concluído.');
+
+        } else {
+
+            console.log('Número de lembrete inválido.');
+        }
+        exibirMenu();
+       
+    });
+}
+
 
