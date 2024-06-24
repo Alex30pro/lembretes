@@ -102,5 +102,25 @@ function adicionarLembretes() {
 
 }
 
+function listarDeLembretes() {
 
+    if (lembretes.length === 0) {
+
+        console.log('Nenhum Lembrete cadastrado')
+
+    } else {
+
+        console.log('Lista de lembretes cadastrados:')
+
+            lembretes.forEach(lembrete => {
+
+            console.log(`Lembrete: ${lembrete.nomeLembrete}, Horário: ${lembrete.horarioLembrete}, Dia: ${lembrete.diaLembrete}`)
+
+        })
+
+    }
+
+    exibirMenu()
+
+}
 
